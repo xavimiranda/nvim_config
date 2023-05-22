@@ -3,4 +3,4 @@ require("xav1t.plugin_config.lualine")
 require("xav1t.plugin_config.nvim-tree")
 require("xav1t.plugin_config.telescope")
 require("xav1t.plugin_config.treesitter")
-
+require("xav1t.plugin_config.lsp_config")

@@ -12,4 +12,11 @@ return require('packer').startup(function(use)
                 tag = '0.1.1',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}	
+
+        --lsp plugins
+        use {
+            'williamboman/mason.nvim',
+            'williamboman/mason-lspconfig.nvim',
+            'neovim/nvim-lspconfig'
+        }
 end)
