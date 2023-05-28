@@ -1,11 +1,20 @@
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
+    use({
+        "kylechui/nvim-surround",
+        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end
+    })
+
     use 'nvim-tree/nvim-web-devicons'
     use 'folke/tokyonight.nvim'
     use 'nvim-tree/nvim-tree.lua'
     use 'nvim-lualine/lualine.nvim'
-
     use 'nvim-treesitter/nvim-treesitter'
     use 'nvim-treesitter/nvim-treesitter-context'
     use {
@@ -38,5 +47,5 @@ return require('packer').startup(function(use)
     use 'mfussenegger/nvim-dap'
     use 'mfussenegger/nvim-dap-python'
     use 'nvim-telescope/telescope-dap.nvim'
-    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dapf"} }
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
 end)
