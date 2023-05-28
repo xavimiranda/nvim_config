@@ -15,6 +15,14 @@ local on_attach = function(_, _)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, {})
     vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, {})
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
+
+    if package.loaded["which-key"] then
+        require("which-key").register({
+            ["<leader>"] = {
+                ["rn"] = "Rename symbol"
+            }
+        })
+    end
 end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()

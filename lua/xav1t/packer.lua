@@ -15,6 +15,14 @@ return require('packer').startup(function(use)
     use 'folke/tokyonight.nvim'
     use 'nvim-tree/nvim-tree.lua'
     use 'nvim-lualine/lualine.nvim'
+    use {
+        "folke/which-key.nvim",
+        config = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+            require("which-key").setup()
+        end
+    }
     use 'nvim-treesitter/nvim-treesitter'
     use 'nvim-treesitter/nvim-treesitter-context'
     use {
