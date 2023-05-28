@@ -10,7 +10,7 @@ return require('packer').startup(function(use)
             })
         end
     })
-
+    use 'karb94/neoscroll.nvim'
     use 'nvim-tree/nvim-web-devicons'
     use 'folke/tokyonight.nvim'
     use 'nvim-tree/nvim-tree.lua'

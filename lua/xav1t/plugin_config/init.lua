@@ -6,3 +6,5 @@ require("xav1t.plugin_config.treesitter")
 require("xav1t.plugin_config.lsp_config")
 require("xav1t.plugin_config.completions")
 require("xav1t.plugin_config.nvim-dap")
+
+require('neoscroll').setup()
