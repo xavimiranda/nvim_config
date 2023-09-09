@@ -1,4 +1,7 @@
-require("xav1t.packer")
+print("Loading configuration files")
+
+print("    Require remap file")
 require("xav1t.remap")
-require("xav1t.set")
-require("xav1t.plugin_config")
+
+print("    Require plugins file")
+require("xav1t.lazy")
