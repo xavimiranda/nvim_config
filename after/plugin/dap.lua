@@ -11,14 +11,18 @@ vim.keymap.set('n', '<F12>', function() dap.step_out() end)
 vim.keymap.set('n', '<F9>', function() dap.toggle_breakpoint() end)
 
 vim.keymap.set('n', '<leader><F9>',
-    function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
+    function() dap.set_breakpoint( vim.fn.input('Condition: '))
+    end)
 
 vim.keymap.set('n', '<leader>dr', function()
     dapui.close(); dapui.open({ reset = true })
 end)
 vim.keymap.set('n', '<leader>dl', function() dap.run_last() end)
 
+--------------------------python da -------------------------------------------
+require('dap-python').setup('~/.virtualenvs/debugpy/Scripts/python')
 
+--------------------------javascript da -------------------------------------------
 local path = vim.fn.stdpath("data") .. "/lazy/vscode-js-debug"
 require("dap-vscode-js").setup({
     -- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
