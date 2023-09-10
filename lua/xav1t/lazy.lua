@@ -43,14 +43,14 @@ require("lazy").setup({
         branch = 'v2.x',
         dependencies = {
             -- LSP Support
-            { 'neovim/nvim-lspconfig' },    -- Required
-            { 'williamboman/mason.nvim' },  -- Optional
+            { 'neovim/nvim-lspconfig' },             -- Required
+            { 'williamboman/mason.nvim' },           -- Optional
             { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
             -- Autocompletion
-            { 'hrsh7th/nvim-cmp' }, -- Required
+            { 'hrsh7th/nvim-cmp' },     -- Required
             { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'L3MON4D3/LuaSnip' }, -- Required
+            { 'L3MON4D3/LuaSnip' },     -- Required
         }
     },
     {
@@ -60,8 +60,8 @@ require("lazy").setup({
             vim.o.timeout = true
             vim.o.timeoutlen = 300
         end,
-    }, 
-    -- noice 
+    },
+    -- noice
     {
         "folke/noice.nvim",
         event = "VeryLazy",
@@ -76,6 +76,44 @@ require("lazy").setup({
             --   If not available, we use `mini` as the fallback
             "rcarriga/nvim-notify",
         }
-    }
+    },
 
+    --DAP
+    { "rcarriga/nvim-dap-ui",           dependencies = { "mfussenegger/nvim-dap" } },
+    { 'theHamsta/nvim-dap-virtual-text' },
+    -- javascript da
+    { "mxsdev/nvim-dap-vscode-js",      dependencies = { "mfussenegger/nvim-dap" } },
+    {
+        "microsoft/vscode-js-debug",
+        build = function()
+            local path = vim.fn.stdpath("data") .. "/lazy/vscode-js-debug"
+            vim.fn.system("cd " .. path .. " && npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && move dist out")
+        end
+    },
+    -- python da
+    { "mfussenegger/nvim-dap-python", dependencies = { "mfussenegger/nvim-dap" } },
+
+    --goto-preview
+    { 'rmagatti/goto-preview' },
+
+    -- leap
+    { "ggandor/leap.nvim",            config = function() require('leap').add_default_mappings() end },
+
+    --lualine
+    {
+        "nvim-lualine/lualine.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons", config = function() require('lualine').setup() end },
+    },
+
+    --nvim-tree
+    {
+        "nvim-tree/nvim-tree.lua",
+    },
+
+    -- nvim -comments
+    {
+        'numToStr/Comment.nvim',
+        lazy = false,
+        config=function() require('Comment').setup() end
+    }
 })

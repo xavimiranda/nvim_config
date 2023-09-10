@@ -20,6 +20,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- Allows to paste to a selection, without loosing the paste buffer
 vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set("n", "<leader>p", [["+p]])
+vim.keymap.set("n", "<leader>P", [["+P]])
 
 -- yank to system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
@@ -46,3 +47,5 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+vim.keymap.set("n", "<C-n>", [[:noh<CR>]], { silent = true })
