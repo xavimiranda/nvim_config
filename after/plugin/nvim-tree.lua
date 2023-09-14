@@ -1,4 +1,6 @@
 vim.keymap.set("n", "<C-h>", [[:NvimTreeToggle<CR>]], { silent = true })
+vim.keymap.set("n", "<C-e>", [[:NvimTreeFindFile<CR>]], { silent = true })
+
 local api = require('nvim-tree.api')
 
 local function edit_or_open()
@@ -8,7 +10,7 @@ local function edit_or_open()
         api.node.open.edit()
     else
         api.node.open.edit()
-        api.tree.close()
+        --api.tree.close()
     end
 end
 

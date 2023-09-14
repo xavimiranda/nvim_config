@@ -87,7 +87,8 @@ require("lazy").setup({
         "microsoft/vscode-js-debug",
         build = function()
             local path = vim.fn.stdpath("data") .. "/lazy/vscode-js-debug"
-            vim.fn.system("cd " .. path .. " && npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && move dist out")
+            vim.fn.system("cd " ..
+                path .. " && npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && move dist out")
         end
     },
     -- python da
@@ -114,6 +115,20 @@ require("lazy").setup({
     {
         'numToStr/Comment.nvim',
         lazy = false,
-        config=function() require('Comment').setup() end
-    }
+        config = function() require('Comment').setup() end
+    },
+    {
+        "kylechui/nvim-surround",
+        version = "*", -- Use for stability; omit to use `main` branch for the latest features
+        event = "VeryLazy",
+        config = function()
+            require("nvim-surround").setup({})
+        end
+    },
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        opts = {} -- this is equalent to setup({}) function
+    },
+    { 'windwp/nvim-ts-autotag', },
 })
